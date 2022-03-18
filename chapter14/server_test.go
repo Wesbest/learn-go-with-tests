@@ -14,20 +14,6 @@ type SpyStore struct {
 	t        *testing.T
 }
 
-// func (s *SpyStore) assertWasCancelled() {
-// 	s.t.Helper()
-// 	if s.cancelled {
-// 		s.t.Error("store was not told to cancel")
-// 	}
-// }
-
-// func (s *SpyStore) assertWasNotCancelled() {
-// 	s.t.Helper()
-// 	if s.cancelled {
-// 		s.t.Error("store was told to cancel")
-// 	}
-// }
-
 func (s *SpyStore) Fetch(ctx context.Context) (string, error) {
 	data := make(chan string, 1)
 
@@ -53,10 +39,6 @@ func (s *SpyStore) Fetch(ctx context.Context) (string, error) {
 		return res, nil
 	}
 }
-
-// func (s *SpyStore) Cancel() {
-// 	s.cancelled = true
-// }
 
 func TestServer(t *testing.T) {
 
