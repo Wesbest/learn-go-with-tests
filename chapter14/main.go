@@ -10,7 +10,7 @@ type Store interface {
 }
 
 func Server(store Store) http.HandlerFunc {
-	return func(rw http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, store.Fetch())
 	}
 }
